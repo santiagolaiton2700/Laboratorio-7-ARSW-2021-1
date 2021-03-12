@@ -5,13 +5,15 @@ var app = (function(){
     var nombre="";
     var bluePrint=[];
     var data="";
+    var nombreBlue;
+    var nueva;
+    var bluePrintSelect;
 
 
 
     function setAuthor(){
         //change from mock to client
         apiSelector=apiclient;
-
         nombre=$("#author").val()
         $(".userName").text(nombre+"'s Blueprints");
         
@@ -48,11 +50,14 @@ var app = (function(){
     }
    
     function getPointBluePrint(blueprintName){
+        nombreBlue=blueprintName;
         $(".printName").text("Current Blueprint: "+blueprintName);
+
         apiSelector.getBlueprintsByNameAndAuthor(nombre,blueprintName,pintar);
 
     }
     function pintar(bluePrint){
+        bluePrintSelect=bluePrint;
         var c = document.getElementById("canvas");
         var lapiz= c.getContext("2d");
         lapiz.clearRect(0,0,1000,1000);
@@ -62,14 +67,36 @@ var app = (function(){
             lapiz.lineTo(bluePrint.points[i].x,bluePrint.points[i].y)
         }
         lapiz.stroke();
+        nueva=bluePrint.points;
+
+    };
+    function puntoNuevo(a,b){
+        nueva.push({x:a,y:b})
+        var c = document.getElementById("canvas");
+        var lapiz= c.getContext("2d");
+        lapiz.clearRect(0,0,1000,1000);
+        lapiz.beginPath();
+        lapiz.moveTo(nueva[0].x,nueva[0].y); 
+        for(let i=1;i<nueva.length;i++){ 
+            lapiz.lineTo(nueva[i].x,nueva[i].y)
+        }
+        lapiz.stroke();
+    };
+
+    function guardar(){
+        apiSelector.guardar(bluePrintSelect);
+        //apimock.setPoint(bluePrintSelect,nueva);
+        //getBlueprintsAuthor();
     }
+
 
     return{
         setAuthor : setAuthor,
         getBlueprintsAuthor:getBlueprintsAuthor,
         pintar : pintar,
-        getPointBluePrint:getPointBluePrint
-
+        getPointBluePrint:getPointBluePrint,
+        puntoNuevo:puntoNuevo,
+        guardar:guardar
     }
 
 

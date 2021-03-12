@@ -239,9 +239,17 @@ var apimock = (function () {
   ) {
     callback(mockdata[author].find((obj) => obj.name === nameBlueprint));
   };
+  var setPoint=function(bluePrint,list){
+    console.log(bluePrint)
+    console.log(list)
+    var hola=mockdata[bluePrint.author].find((obj)=>obj.name===bluePrint.name);
+    console.log(hola);
+  }
+
 
   return {
     getBlueprintsByAuthor: getBlueprintsByAuthor,
     getBlueprintsByNameAndAuthor: getBlueprintsByNameAndAuthor,
+    setPoint:setPoint
   };
 })();
