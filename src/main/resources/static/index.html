@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <title>Blueprints</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href=css/styleCode.css>
+    <script src="js/app.js"></script>
+    <script src="js/apimock.js"></script>
+    <script src="js/apiclient.js"></script>
+
+</head>
+
+
+<body onload="app">
+<h1>BluePrints</h1>
+<div class="contenedor">
+    <div>
+        <form>
+            Author : 
+            <input id="author" type="text">
+            <button type="button" value="Consultar Por Author" onclick="app.setAuthor(),app.getBlueprintsAuthor()">Get Blueprints</button>
+        </form>
+    </div>
+    <div class="tablaIzquierda">
+        
+        <h3 class=userName></h2>
+        <table id="BluePrintTable">
+                <th>BluePrint Name</th>
+                <th>Numero de puntos</th>
+                <th>Open</th>
+        </table>
+        <h2 id="Points">Total User Points : </h2>
+
+        
+    </div>
+
+
+
+</div>
+<div class="canvasDerecha">
+    <h3 class=printName></h3>
+    <canvas id="canvas" width="750" height="750" style="border: 5px solid black"></canvas>
+</div>
+</body>
+</html>
