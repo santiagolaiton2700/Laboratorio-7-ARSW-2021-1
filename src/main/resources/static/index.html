@@ -22,10 +22,11 @@
 <h1>BluePrints</h1>
 <div class="contenedor">
     <div>
+
         <form>
-            Author : 
+            Author :<br> 
             <input id="author" type="text">
-            <button type="button" value="Consultar Por Author" onclick="app.setAuthor(),app.getBlueprintsAuthor()">Get Blueprints</button>
+            <button type="button" value="Consultar Por Autor" onclick="app.setAuthor()">Get Blueprints</button>
         </form>
     </div>
     <div class="tablaIzquierda">
@@ -46,9 +47,14 @@
 
 </div>
 <div class="canvasDerecha">
+    <form>
+        <input type="text" id="newBlueprintName">
+        <button type="button" value="Crear Nuevo BluePrint" onclick="app.createNewBlueprint()">Create New Blueprint</button>
+    </form>
     <h3 class=printName></h3>
-    <canvas id="canvas" width="750" height="750" style="border: 5px solid black"></canvas>
-    <button type="button" value="Guardar" onclick="app.guardar()">Guardar</button>
+    <canvas id="canvas" width="750" height="750" style="border: 5px solid black"></canvas><br>
+    <button type="button" value="Delete" onclick="app.deleteBlueprint()">Delete</button>
+    <button type="button" value="Save" onclick="app.guardar()">Save</button>
 </div>
 </body>
 </html>

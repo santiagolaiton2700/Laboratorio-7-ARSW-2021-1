@@ -21,6 +21,15 @@ public interface BlueprintsPersistence {
      *    or any other low-level persistence error occurs.
      */
     public void saveBlueprint(Blueprint bp) throws BlueprintPersistenceException;
+
+    /**
+     *
+     * @param author name of the blueprint author
+     * @param bprintname name of the blueprint
+     * @throws BlueprintNotFoundException if a blueprint is not found it couldn't be deleted,
+     *      and a BlueprintNotFoundException error occurs
+     */
+    public void deleteBlueprint(String author, String bprintname)throws BlueprintNotFoundException;
     
     /**
      * 

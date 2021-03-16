@@ -54,6 +54,16 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
             throw new BlueprintPersistenceException("The given blueprint already exists: "+bp);
         }   
     }
+    @Override
+    public void deleteBlueprint(String author, String bprintname)throws BlueprintNotFoundException{
+        Blueprint bp = blueprints.get(new Tuple<>(author, bprintname));
+        if(bp!=null){
+            blueprints.remove(new Tuple<>(author,bprintname));
+        }
+        else{
+            throw new BlueprintNotFoundException("The next blueprint does not exist: "+bprintname+" with author: "+author);
+        }
+    }
 
     @Override
     public Blueprint getBlueprint(String author, String bprintname) throws BlueprintNotFoundException {
